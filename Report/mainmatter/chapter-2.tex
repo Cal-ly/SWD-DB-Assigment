@@ -29,8 +29,9 @@ All tables are in 3NF because:
 \begin{enumerate}
   \item They are in 1NF as all attributes are \emph{atomic} - no groups are repeated or contain more than one value.
       This can be seen, for example, by HotelFacilities being a relationship table between Hotel and Facility.
-  \item They are in 2NF as there is no \emph{partial dependency} - Non-key columns depend solely on the PK.
+  \item They are in 2NF as there is no \emph{partial dependency} - Non-key columns depend on the (whole) primary key.
       This can be seen, for example, by Hotel having a relationship to Facility instead of containing Facility as an attribute.
-  \item There are no \emph{transitive dependencies} - Non-key columns depend only on the PK.
-      This can be seen, for example, by Room having a relationship to Hotel instead of containing Hotel as an attribute.
+      Also there is no composite key in any table.
+  \item There are no \emph{transitive dependencies} - Non-key columns depend only on the primary key.
+      It is hard to prove, that something is not, but it is a result of the 1NF and 2NF states.
 \end{enumerate}
