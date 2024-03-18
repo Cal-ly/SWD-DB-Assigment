@@ -2,6 +2,7 @@
 \label{chapter:winform-application}
 
 \section{Considerations regarding the application}
+See \ref*{app:screen-shots} for screenshots of the application.
 
 \subsection{Scope}
 Based on the task description and my interpretation of the intention behind the task, the application is the tertiary priority - implying that the database is the primary focus, and diagrams and arguments for documentation are secondary.
@@ -32,35 +33,41 @@ The reason is the same as the one for the scope of the application: the database
 \section{Implementation}
 A new WinForm application was created in Visual Studio 2022 using .NET 8.0. The application is named HotelFacilityApp. 
 It has been uploaded to GitHub, and can be found at \url{https://github.com/Cal-ly/SWD-DB-Assigment.git} along with the rest of the project.
-Be aware, that the application is using a local database, and the connection string in the code (or app.config file) will need to be changed to match your local database.
+Be aware, that the application is using a local database, and the connection string in the code (or app.config file) 
+will need to be changed to match your local database.
 
 \subsection{Connection to the database}
-The connection to the database is established in the ConnectForm.cs, which is the first form that is shown when the application is started. 
-From there the user will connect to the default database, requested to supply their own string or get an error message. 
-The connection in the other "slave" forms (CreateForm and UpdateForm) is handled via the \emph{Using} statement, which ensures that the connection is closed when the form is closed.
+The connection to the database is established in the ConnectForm.cs, which is the first form that is shown when the application is started.
+See \ref*{fig:1connectform} for a screenshot of the form. From there the user will connect to the default database, 
+requested to supply their own string or get an error message - \ref*{fig:2connectionopen} shows the form with a successful connection.
+The connection in the other "slave" forms (CreateForm and UpdateForm) is handled via the \emph{Using} statement, 
+which ensures that the connection is closed when the form is closed.
 
 \subsection{Displaying the "Facilities" table}
-The ConnectForm.cs contains a DataGridView that is populated with the "Facilities" table from the database. 
-This is simply done using a SQL query:
+The ConnectForm.cs contains a DataGridView that is populated with the "Facilities" table from the database.
+See \ref*{fig:3getallhotels} for a screenshot of the form. This is simply done using a SQL query:
 \mint{sql}|SELECT * FROM Facilities| 
 with the C\# side handled with SqlCommand and SqlDataReader.
 
 \subsection{Adding a record to "Facilities" using DB autoincrement}
-The CreateForm.cs contains a TextBox for the Name and a RichTextBox for the Description. 
-When the user clicks the "Create" button, the data is inserted into the "Facilities" table using a SQL query:
+The CreateForm.cs contains a TextBox for the Name and a TextBox for the Description. See \ref*{fig:4createform} for a screenshot of the form.
+When the user clicks the "Add Facility" button, the data is inserted into the "Facilities" table using a SQL query:
 \mint{sql}|INSERT INTO Facilities (Name, Description) VALUES (@FacilityName, @FacilityDescription)|
+See \ref*{fig:5addfacility} and \ref*{fig:6facilityadded} for a screenshot of the form with the data inserted.
 
 \subsection{Updating the Name and Description of a record in "Facilities"}
 The ConnectForm.cs contains a DataGridView that is populated with the "Facilities" table from the database. 
-When the user clicks a rowheader in the DataGridView, the Name and Description of the selected row is displayed in TextBoxes. 
-When the user clicks the "Update" button, the data is updated in the "Facilities" table using a SQL query:
+When the user clicks a rowheader in the DataGridView, the Name and Description of the selected row is displayed in TextBoxes.
+See \ref*{fig:7updateform} for a screenshot of the form. When the user clicks the "Update" button, the data is updated in the "Facilities" table using a SQL query:
 \mint{sql}|UPDATE Facilities SET Name = @FacilityName, Description = @FacilityDescription WHERE Id = @FacilityId|
+See \ref*{fig:8updatefacility} and \ref*{fig:9facilityupdated} for a screenshot of the form with the data updated.
 
 \subsection{Deleting a record from "Facilities"}
 The ConnectForm.cs contains a DataGridView that is populated with the "Facilities" table from the database. 
 When the user clicks a rowheader in the DataGridView, the Name and Description of the selected row is displayed in TextBoxes.
-When the user clicks the "Delete" button, the data is deleted from the "Facilities" table using a SQL query:
+See \ref*{fig:10deleteform} for a screenshot of the form. When the user clicks the "Delete" button, the data is deleted from the "Facilities" table using a SQL query:
 \mint{sql}|DELETE FROM Facilities WHERE Id = @FacilityId|
+See \ref*{fig:11facilitydeleted} for a screenshot of the form with the data deleted.
 
 \subsection{Alternativ to Add Facility}
 In the UpdateForm.cs, there is also an \emph{Add as New} button. This is a simple way to either add a new or clone it, while stille giving it a new ID.
