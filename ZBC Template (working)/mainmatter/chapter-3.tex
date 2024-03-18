@@ -1,0 +1,34 @@
+\chapter{WinForm Application}
+\label{chapter:winform-application}
+
+\section{Considerations regarding the application}
+
+\subsection{Scope}
+Based on the task description and my interpretation of the intention behind the task, the application is the tertiary priority - implying that the database is the primary focus, and diagrams and arguments for documentation are secondary.
+Therefore, I have narrowed down the task to an application that can perform CRUD operations on the "Facilities" table in the database. This leads me to the following functionality:
+
+\begin{itemize}
+    \item Connection to my local database
+    \item Displaying the "Facilities" table
+    \item Adding a record to "Facilities" using DB autoincrement
+    \item Updating the Name and Description of a record in "Facilities"
+    \item Deleting a record from "Facilities"
+\end{itemize}
+
+\subsection{Out of scope}
+This leads me to the conclusion that I will not implement features such as adding a Facility to a Hotel through HotelFacilities. 
+This is because it would require more work on the UI side, rather than on and in the database work.
+
+\subsection{However}
+I have added a DataGridView for the "ViewHotelFacilities", which is a view that I have created in the database.
+The script can be found in \ref*{label:sql-view-hotel-facilities}. 
+This is because I wanted to see how the relationship between the Hotel and the Facilities would be displayed in a DataGridView.
+
+\subsection{Design}
+The application will be a simple WinForm application with a DataGridView for displaying the "Facilities" table, and a few buttons for the CRUD operations.
+Classic WinForm controls will be used, and the application will be designed to be as simple as possible. 
+The reason is the same as the one for the scope of the application: the database is the primary focus, and the application is secondary.
+
+
+\section{Implementation}
+A new WinForm application was created in Visual Studio 2022 using .NET 8.0. The application is named HotelFacilityApp. It is uploaded to GitHub, and can be found at \url{}

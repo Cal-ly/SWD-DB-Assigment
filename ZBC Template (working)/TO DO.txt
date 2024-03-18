@@ -1,0 +1,9 @@
+- Clean up
+- Comment
+- Write how to on settings.json
+- Write on Minted
+	> Python
+	> Pygments
+	> Perl?
+	> Set up
+- Construct front-page 

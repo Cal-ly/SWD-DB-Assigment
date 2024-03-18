@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{VIEW}\PYG{+w}{ }\PYG{n}{HotelsWithFacilities}\PYG{+w}{ }\PYG{k}{AS}
+\PYG{k}{SELECT}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{n}{h}\PYG{p}{.}\PYG{n}{HotelID}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{h}\PYG{p}{.}\PYG{n}{Name}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{HotelName}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{f}\PYG{p}{.}\PYG{n}{FacilityID}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{f}\PYG{p}{.}\PYG{n}{Name}\PYG{+w}{ }\PYG{k}{AS}\PYG{+w}{ }\PYG{n}{FacilityName}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{f}\PYG{p}{.}\PYG{n}{Description}
+\PYG{k}{FROM}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{n}{Hotels}\PYG{+w}{ }\PYG{n}{h}
+\PYG{k}{JOIN}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{n}{HotelFacilities}\PYG{+w}{ }\PYG{n}{hf}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{h}\PYG{p}{.}\PYG{n}{HotelID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{hf}\PYG{p}{.}\PYG{n}{HotelID}
+\PYG{k}{JOIN}\PYG{+w}{ }
+\PYG{+w}{    }\PYG{n}{Facilities}\PYG{+w}{ }\PYG{n}{f}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{n}{hf}\PYG{p}{.}\PYG{n}{FacilityID}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{.}\PYG{n}{FacilityID}\PYG{p}{;}
+
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{HotelsWithFacilities}\PYG{p}{;}
+\end{Verbatim}
