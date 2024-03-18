@@ -1,0 +1,57 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Hotels}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{Hotels}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{HotelID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{Name}\PYG{+w}{ }\PYG{n}{NVARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{Address}\PYG{+w}{ }\PYG{n}{NVARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{),}
+\PYG{+w}{	}\PYG{n}{City}\PYG{+w}{ }\PYG{n}{NVARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{),}
+\PYG{+w}{	}\PYG{n}{PostalCode}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{Rating}\PYG{+w}{ }\PYG{n+nb}{INT}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Customers}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{Customers}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{CustomerID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{Name}\PYG{+w}{ }\PYG{n}{NVARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{Email}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{Phone}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{15}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Rooms}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{Rooms}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{RoomID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{HotelID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{RoomNumber}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{Type}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{Price}\PYG{+w}{ }\PYG{n+nb}{DECIMAL}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{HotelID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Hotels}\PYG{p}{(}\PYG{n}{HotelID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Reservations}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{Reservations}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{ReservationID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{CustomerID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{RoomID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{CheckInDate}\PYG{+w}{ }\PYG{n+nb}{DATE}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{CheckOutDate}\PYG{+w}{ }\PYG{n+nb}{DATE}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{Status}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{50}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{CustomerID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Customers}\PYG{p}{(}\PYG{n}{CustomerID}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{RoomID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Rooms}\PYG{p}{(}\PYG{n}{RoomID}\PYG{p}{)}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Facilities}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{Facilities}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{FacilityID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{Name}\PYG{+w}{ }\PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{100}\PYG{p}{),}
+\PYG{+w}{    }\PYG{n}{Description}\PYG{+w}{ }\PYG{n+nb}{TEXT}
+\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} HotelFacilities}
+\PYG{k}{CREATE}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{HotelFacilities}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{n}{HotelFacilityID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{+w}{ }\PYG{k}{IDENTITY}\PYG{+w}{ }\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{PRIMARY}\PYG{+w}{ }\PYG{k}{KEY}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{HotelID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{n}{FacilityID}\PYG{+w}{ }\PYG{n+nb}{INT}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{HotelID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Hotels}\PYG{p}{(}\PYG{n}{HotelID}\PYG{p}{),}
+\PYG{+w}{    }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{FacilityID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{Facilities}\PYG{p}{(}\PYG{n}{FacilityID}\PYG{p}{)}
+\PYG{p}{);}
+\end{Verbatim}

@@ -1,0 +1,23 @@
+\chapter{Example}
+
+\section{Creating the Database}
+
+\subsection{Create Database Script}
+This can be used for recreating the database from scratch.
+\inputminted{sql}{codefiles/CreateAllTabels.sql}
+
+
+\subsection{Mock Data}
+This section contains the SQL code for inserting mock data into the tables. 
+Note the use of reseeding the ID of all tables to 1, so that the mock data can be inserted without having to worry about the ID.
+This of course is only intended for mock data, and should not be used in a production environment.
+The mock data is in Danish, because the UTF-8 encoding took me a little while to troubleshoot, so I am keeping the æ, ø and å.
+\inputminted{sql}{codefiles/DanishMockData.sql}
+
+
+\subsection{View Hotel Facilities}
+The following is the SQL code for creating a view that shows the relationship between the Hotel and the Facilities.
+\inputminted{sql}{codefiles/ViewHotelFacilities.sql}
+\label{label:sql-view-hotel-facilities}
+
+

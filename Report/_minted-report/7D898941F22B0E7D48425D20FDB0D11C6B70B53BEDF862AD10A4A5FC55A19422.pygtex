@@ -1,0 +1,69 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Delete all records}
+\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Reservations}\PYG{p}{;}
+\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{HotelFacilities}\PYG{p}{;}
+\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Rooms}\PYG{p}{;}
+\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Facilities}\PYG{p}{;}
+\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Customers}\PYG{p}{;}
+\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{Hotels}\PYG{p}{;}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} This resets all Identity to O, so the next entry is 1}
+\PYG{n}{DBCC}\PYG{+w}{ }\PYG{n}{CHECKIDENT}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Hotels\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RESEED}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{n}{DBCC}\PYG{+w}{ }\PYG{n}{CHECKIDENT}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Customers\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RESEED}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{n}{DBCC}\PYG{+w}{ }\PYG{n}{CHECKIDENT}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Rooms\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RESEED}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{n}{DBCC}\PYG{+w}{ }\PYG{n}{CHECKIDENT}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Reservations\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RESEED}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{n}{DBCC}\PYG{+w}{ }\PYG{n}{CHECKIDENT}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Facilities\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RESEED}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+\PYG{n}{DBCC}\PYG{+w}{ }\PYG{n}{CHECKIDENT}\PYG{+w}{ }\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}HotelFacilities\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RESEED}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Insert mock data into Hotels}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{Hotels}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Address}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{City}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{PostalCode}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Rating}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Scandic Hotel\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Ved Ringen 2\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Roskilde\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}4000\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Bjergflugt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Højlandet Alle 34\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Bjergby\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}3400\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Byhotel\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Centrum Boulevard 56\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Storby\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}4500\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Insert mock data into Customers}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{Customers}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Email}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Phone}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Jens Hansen\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}jens.hansen@example.com\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}10203040\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Mette Nielsen\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}mette.nielsen@example.com\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}40506070\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Lars Andersen\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}lars.andersen@example.com\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}70809010\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Lars Larsen\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}lars.larsen@mail.com\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}10405060\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Laila Larsen\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}laila.larsen@mail.com\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}40302010\PYGZsq{}}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Insert mock data into Rooms}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{Rooms}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{HotelID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RoomNumber}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{Type}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Price}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}101\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Enkelt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{750}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}102\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Dobbelt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1125}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}103\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Suite\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1875}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}101\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Enkelt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{750}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}102\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Dobbelt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1125}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}103\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Suite\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1875}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}101\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Enkelt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{750}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}102\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Dobbelt\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1125}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}103\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Suite\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1875}\PYG{p}{.}\PYG{l+m+mi}{00}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Insert mock data into Reservations}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{Reservations}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{CustomerID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{RoomID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{CheckInDate}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{CheckOutDate}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Status}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}04\PYGZhy{}01\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}04\PYGZhy{}05\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Bekræftet\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}04\PYGZhy{}10\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}04\PYGZhy{}12\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Bekræftet\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}05\PYGZhy{}01\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}05\PYGZhy{}03\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Bekræftet\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{4}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}05\PYGZhy{}24\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}05\PYGZhy{}26\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Bekræftet\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{9}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}05\PYGZhy{}24\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}2024\PYGZhy{}05\PYGZhy{}26\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Bekræftet\PYGZsq{}}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Insert mock data into Facilities}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{Facilities}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{Name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Description}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Svømmepøl\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Udendørs pool med liggestole og bar service\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Spa\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Fuld\PYGZhy{}service spa der tilbyder massage, ansigtsbehandlinger, og kropsbehandlinger\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Fitnessrum\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}24/7 adgang til træningsudstyr og frie vægte\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Børnebasin\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Udendørs børnepool med legetøj\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Bar\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}All inclusive bar med stort udvalg\PYGZsq{}}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Wellness Area\PYGZsq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{l+s+s1}{\PYGZsq{}Med spa og haram\PYGZsq{}}\PYG{p}{);}
+
+\PYG{c+c1}{\PYGZhy{}\PYGZhy{} Insert mock data into HotelFacilities}
+\PYG{k}{INSERT}\PYG{+w}{ }\PYG{k}{INTO}\PYG{+w}{ }\PYG{n}{HotelFacilities}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{HotelID}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{FacilityID}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{VALUES}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{3}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{4}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{5}\PYG{p}{),}
+\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{6}\PYG{p}{);}
+\end{Verbatim}
