@@ -58,16 +58,16 @@ See \ref*{fig:5addfacility} and \ref*{fig:6facilityadded} for a screenshot of th
 \subsection{Updating the Name and Description of a record in "Facilities"}
 The ConnectForm.cs contains a DataGridView that is populated with the "Facilities" table from the database. 
 When the user clicks a rowheader in the DataGridView, the Name and Description of the selected row is displayed in TextBoxes.
-See \ref*{fig:7updateform} for a screenshot of the form. When the user clicks the "Update" button, the data is updated in the "Facilities" table using a SQL query:
+See \ref*{fig:7facilityupdate} for a screenshot of the form. When the user clicks the "Update" button, the data is updated in the "Facilities" table using a SQL query:
 \mint{sql}|UPDATE Facilities SET Name = @FacilityName, Description = @FacilityDescription WHERE Id = @FacilityId|
-See \ref*{fig:8updatefacility} and \ref*{fig:9facilityupdated} for a screenshot of the form with the data updated.
+See \ref*{fig:8facilitytobeupdated} and \ref*{fig:9updateprompt} for a screenshot of the form with the data updated.
 
 \subsection{Deleting a record from "Facilities"}
 The ConnectForm.cs contains a DataGridView that is populated with the "Facilities" table from the database. 
 When the user clicks a rowheader in the DataGridView, the Name and Description of the selected row is displayed in TextBoxes.
-See \ref*{fig:10deleteform} for a screenshot of the form. When the user clicks the "Delete" button, the data is deleted from the "Facilities" table using a SQL query:
+See \ref*{fig:10deleteform} and \ref*{fig:11deleteprompt} for a screenshot of the form. 
+When the user clicks the "Delete" button, the data is deleted from the "Facilities" table using a SQL query:
 \mint{sql}|DELETE FROM Facilities WHERE Id = @FacilityId|
-See \ref*{fig:11facilitydeleted} for a screenshot of the form with the data deleted.
 
 \subsection{Alternativ to Add Facility}
 In the UpdateForm.cs, there is also an \emph{Add as New} button. This is a simple way to either add a new or clone it, while stille giving it a new ID.
